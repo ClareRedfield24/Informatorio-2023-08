@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+<title>{% block title %} Contacto {% endblock title %}</title>
+<center>
+    <form method= "POST" style= "margin: 25px;">
+        <p>¿Alguna pregunta, sugerencia o le interesa algún tema específico?&nbsp;Por favor rellene este formulario.</p>
+        <h1>Formulario de contacto</h1>
+        <br>
+        {% if messages%}
+            {% for message in messages%}
+                <div class= "message {{ message.tags}}"> {{ message}} </div>
+            {% endfor %}
+        {% endif %}
+        <table>
+            {% csrf_token %}
+            {{ form }}
+        </table>
+        <input type="submit" value="enviar">
+    </form>
+
+  
+</center>
+
+{% endblock %}
+
+
