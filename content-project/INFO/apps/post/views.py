@@ -28,6 +28,7 @@ class PostDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        # context["post"] = Post.objects
         context["form"] = ComentarioForm()
         context["comentarios"] = Comentario.objects.filter(posts_id=self.kwargs["id"])
         return context
