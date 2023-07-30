@@ -1,6 +1,451 @@
 #bg-index{
-    background-image: url("../imagenes/bgindex.jpg");
+    background-image: linear-gradient(rgba(0, 50, 60, 0.6), rgba(20, 0, 0, 0.3)), url("../imagenes/bgindex.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
+}
+
+.lead {
+    font-size: 1.25rem;
+    font-weight: inherit;
+    font-family: math;
+    font-size: x-large;
+}
+
+.display-4 {
+    font-size: calc(1.475rem + 2.7vw);
+    font-weight: 300;
+    line-height: 1.2;
+    font-weight: 400;
+    font-family: auto;
+    color: #fff;
+    text-align: initial;
+}
+.lead{
+    color:gainsboro;
+}
+
+/* #aca estoy editando para listar todos los post# */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family:sans-serif ;
+}
+.post-list{
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 15px;
+    background: rgba(0, 2, 2, 0.2);
+}
+.content{
+    display: grid;
+    grid-template-columns:repeat(3,1fr) ;
+    grid-gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+.post-img{
+    /* background: url("../imagenes/post_default.jpg"); */
+    /* width: 100%;
+    height: 200px; */
+    background-size: cover;
+    background-position: center center;
+    transition: .2s;
+}
+.post{
+    box-shadow: 0 1px 6px 1px #2686be;
+    overflow: hidden;
+    transition: .2s;
+    background-color: rgba(147, 187, 199, 0.62);
+}
+.post:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 1px 14px 2px rgb(0, 0, .15);
+
+}
+.post-header{
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.post:hover .post-img{
+    transform: scale(1.6);
+}
+.post-body{
+    padding: 15px;
+    text-align: center;
+}
+
+.post-body span{
+    display:inline-block;
+    color: ghostwhite;
+    margin-bottom: 10px;
+}
+
+.post-body h2{
+    margin-bottom: 15px;
+}
+
+.post-body p{
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.post-body .post-link{
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    background: #2b6ebb;
+    color: #fff;
+    width: 50%;
+    margin: auto;
+    border-radius: 20px;
+    box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, .1);
+    transition: .2s;
+}
+
+.post-body .post-link:hover{
+    background: #3378c7;
+    box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, .2);
+    transform: translateY(-2px);
+}
+
+@media(max-width: 840px){
+    .content{
+       grid-template-columns: repeat(2, 1fr); 
+    }
+}
+@media(max-width: 600px){
+    .content{
+       grid-template-columns: repeat(1, 1fr); 
+    }
+}
+
+/* #aca estoy editando para listar los post recientes en la pagina inicial# */
+
+.actuales{
+    /* display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center; */
+    padding: 10px 15px;
+    /* margin-top: auto; */
+}
+.canter{
+    display: grid;
+    grid-template-columns:repeat(3,1fr) ;
+    grid-gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+.imp-posts{
+    /* background: url("../imagenes/post_default.jpg"); */
+    /* width: 100%;
+    height: 200px; */
+    background-size: cover;
+    background-position: center center;
+    transition: .2s;
+}
+
+.past{
+    box-shadow: 0 1px 6px 1px #2686be;
+    overflow: hidden;
+    transition: .2s;
+    background-color: rgba(147, 187, 199, 0.62);
+
+}
+.past:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 1px 14px 2px rgb(0, 0, .15);
+
+}
+.past-header{
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.past:hover .imp-posts{
+    transform: scale(1.6);
+}
+.post-bady{
+    padding: 15px;
+    text-align: center;
+}
+.post-bady span{
+    display: inline-block;
+    color: ghostwhite;
+    margin-bottom: 10px;
+    
+}
+.post-bady h2{
+    margin-bottom: 15px;
+}
+.post-bady p{
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+.post-bady .post-lenk{
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    background: #2b6ebb;
+    color: #fff;
+    width: 50%;
+    margin: auto;
+    border-radius: 20px;
+    box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, .1);
+    transition: .2s;
+}
+.post-bady .post-lenk:hover{
+    background: #3378c7;
+    box-shadow: 1px 2px 6px 1px rgba(0, 0, 0, .2);
+    transform: translateY(-2px);
+}
+
+.titulo-post {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px; /* Ajusta la altura según necesites */
+    /* text-align: center; */
+    font-family: serif;
+    
+  }
+  
+  /* #aca estoy editando para el login de usuario# */
+
+  .login{
+    background-image: linear-gradient(rgba(10, 80, 60, 0.6), rgba(20, 0, 0, 0.3)), url("../imagenes/bglogin.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+  }
+  .formulario{
+    background: linear-gradient(rgba(0, 80, 60, 0.6), rgba(20, 0, 0, 0.3));
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    margin-top: 120px;
+    margin-bottom: 120px;
+
+  }
+  .form-control{
+    background: rgba(0, -0, -0, -.3);
+    transition: 0.5s ease-in;
+
+  }
+
+  .form-control::placeholder {
+    color: white;
+  }
+  .ingresar{
+    background: darkturquoise;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 700!important;
+    color: white;
+    box-shadow: 0 0 30px rgba(0, -0, -0, -0.568);
+    transition:0.5 ease-in ;
+  }
+  .ingresar:hover{
+    color: white;
+  }
+  .olvide{
+    color: white;
+    text-decoration-style: none;
+    text-decoration-line: none;
+  }
+  .olvide:hover{
+    color: white;
+    cursor: pointer;
+    text-decoration-style: none;
+    text-decoration-line: none;
+  }
+  .olvide1{
+    color: white;
+    text-decoration-style: none;
+    text-decoration-line: none;
+    font-size: 20px;
+    font-weight: 700!important;
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(0, -3, -3, 0.4);
+  }
+  .olvide1:hover{
+    color: white;
+    cursor: pointer;
+    text-decoration-style: none;
+    text-decoration-line: none;
+  }
+
+  /* aca edito lo del footer */
+  .footer {
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    height: 70px;
+  }
+  .text-center {
+    position: inherit;
+    text-align: center;
+    padding: inherit;
+  }
+  .text-barra{
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    height: 70px;
+  }
+
+  /* aca estoy editando lo de registro de usuario */
+  .registro{
+    background-image: linear-gradient(rgba(108, 112, 111, 0.6), rgba(208, 201, 201, 0.3)), url("../imagenes/bglogin.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+  }
+  .registrarse{
+    background: linear-gradient(rgba(69, 73, 72, 0.6), rgba(158, 148, 148, 0.3));
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    margin-top: 120px;
+    margin-bottom: 120px;
+
+  }
+  .form-registro{
+    background: rgba(23, 22, 22, 0.475);
+    transition: 0.5s ease-in;
+    border-radius: 10px;
+
+  }
+
+  .form-registro::placeholder {
+    color: white;
+  }
+  .regis{
+    background: black;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 700!important;
+    color: white;
+    box-shadow: 0 0 30px rgba(0, -0, -0, -0.568);
+    transition:0.5 ease-in ;
+  }
+  .regis:hover{
+    color: white;
+  }
+
+  /* aca edito lo de formulario de contacto */
+  /* * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Monserrat', sans-serif;
+}  */
+
+/* html {
+    font-size: 62.5%;
+
+}  */
+
+/* .container{
+    font-size: 1.9rem;
+    background: url(3.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+} */
+
+.form{
+    width: 50%;
+    min-width: 300px;
+    background: rgba(0, 0, 0, 0.491);
+    margin: auto;
+    margin-top: 50px;
+    padding: 20px;
+    color: blue;
+}
+
+h1{
+    text-align: center;
+    color: #2756c265;
+    padding-bottom: 16px;
+    font-weight: 500;
+}
+
+.header span{
+    color:#fff
+
+}
+
+.form__input{
+   width: 100%;
+   height: 45px;
+   background: rgba(0, 0, 0, 0.7);
+   padding: 10px;
+   outline: none;
+   border: none;
+   border-bottom: 2px solid #2756c265;
+   font-size: 1.4rem;
+   margin-bottom: 15px;
+   color: #fff;
+}
+
+.form__text{
+    width: 100%;
+    height: 45px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #2756c265;
+    margin-bottom: 15px;
+
+}
+
+.form__text::placeholder{
+    font-size: 1.4rem;
+
+}
+
+.form__label{
+    display: block;
+    font-size: 1.4rem ;
+    font-weight: 300;
+
+}
+
+.enviar{
+    width: 100%;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #2756c265;
+    background: #2756c265;
+    color: #fff;
+    text-align: center;
+    font-size: 1.6rem;
+    margin: 20px, 0px, 0;
+    cursor: pointer;
+    transition: all .5s ease;
+
+}
+
+.enviar:hover{
+    background: #2756c265;
 }

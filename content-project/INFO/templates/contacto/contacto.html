@@ -2,6 +2,82 @@
 {% load static %}
 {% block contenido %}
 <title>{% block title %} Contacto {% endblock title %}</title>
+
+<div class="container">
+    <form action="" class="form">
+        <header class="header">
+            <h1><span>Formulario de Contacto</span></h1>
+        </header>
+        <label for="name" class=" form__label">Nombre:</label>
+        <input type="text" class="form__input" name="nombre" placeholder="Nombre" 
+        id="name">
+
+        <label for="direccion" class="form__label">Direccion:</label>
+        <input type="text" class="form__input" name="direccion" placeholder="Direccion" 
+        id="Direccion">
+
+        <label for="correo" class="form__label">Correo Electronico:</label>
+        <input type="email" class="form__input" name="correo" placeholder="Correo Electronico" 
+        id="correo">
+
+        <label for="mensaje" class="form__label">Introduzca su mensaje:</label>
+        <textarea class="form__text" name="mensaje" id="mensaje" cols= "30" 
+        placeholder="Escriba su mensaje">
+
+        <input type="submit" class="enviar" value="Enviar su consulta">
+
+    </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <center>
     <form method= "POST" style= "margin: 25px;">
         <p>¿Alguna pregunta, sugerencia o le interesa algún tema específico?&nbsp;Por favor rellene este formulario.</p>

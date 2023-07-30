@@ -3,14 +3,18 @@
 
 {% block contenido %}
 <center>
-<div class= "container-fluid" style= "margin: 200 px;">
-    <table>{{ posts.titulo }}</table>
-    <table>{{ posts.subtitulo }}</table>
-    <table>{{ posts.categoria }}</table>
     <br>
-    <table>{{ posts.texto }}</table>
-    <img src="{{ posts.imagen.url }}" alt="">
+	<article class="articulo">
+		
+		<h1>TITULO: {{posts.titulo}}</h1>
 
+		<img src="{{posts.imagen.url}}" width="300" height="auto">
+
+		<p>FECHA: {{posts.fecha}}</p>
+		<p>CATEGORIA: {{posts.categoria}}</p>
+		<p>TEXTO: {{posts.texto}}</p>
+	</article>
+    <br>
 </div>
 </center>
 <center>
