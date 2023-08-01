@@ -1,11 +1,13 @@
 # from django.shortcuts import render
 from typing import Any, Dict
-from .models import Post, Comentario
-from .forms import ComentarioForm
-from django.views.generic import ListView, DetailView, CreateView
-from django.contrib.auth.mixins import LoginRequiredMixin
+from .models import Post, Comentario, Categoria
+from .forms import ComentarioForm,CrearPostForm, NuevaCategoriaForm
+from django.views.generic import ListView, DetailView, CreateView,UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import redirect
 from django.urls import reverse
+from django.urls import reverse_lazy
+from django.shortcuts import get_object_or_404
 
 #Vista basada en funciones
 # def posts(request):
@@ -45,8 +47,48 @@ class PostDetailView(DetailView):
             context = self.get_context_data(**kwargs)
             context["form"] = form
             return self.render_to_response(context)
-        
+
+class PostCreateView(LoginRequiredMixin,CreateView):
+    model= Post
+    form_class = CrearPostForm
+    template_name = "posts/crear_post.html"
+    success_url = reverse_lazy("apps.post:posts")
+
+class CategoriaCreateView(LoginRequiredMixin,CreateView):
+    model= Categoria
+    form_class = NuevaCategoriaForm
+    template_name = "posts/crear_categoria.html"
+
+    def get_success_url(self):
+        next_url = self.request.GET.get("next")
+        if next_url:
+            return next_url
+        else:
+            return reverse_lazy("apps.post:crear_post")
+ 
+class CategoriaListView(ListView):
+    model = Categoria
+    template_name = "posts/categoria_list.html"
+    context_object_name = "categoria"
+
+class CategoriaDeleteView(LoginRequiredMixin,DeleteView):
+    model = Categoria
+    template_name = 'posts/categoria_confirm_delete.html'
+    success_url = reverse_lazy('apps.post:categoria_list')
+
+class PostUpdateView(LoginRequiredMixin,UpdateView):
+    model = Post
+    form_class = CrearPostForm
+    template_name = 'posts/modificar_post.html'
+    success_url = reverse_lazy('apps.post:posts')
+
+class PostDeleteView(DeleteView):
+   model = Post
+   template_name = "posts/eliminar_post.html"
+   success_url = reverse_lazy('apps.post:posts')
+
 class ComentarioCreateView(LoginRequiredMixin, CreateView):
+
     model = Comentario
     form_class = ComentarioForm
     template_name = "comentario/agregarComentario.html"
@@ -56,6 +98,43 @@ class ComentarioCreateView(LoginRequiredMixin, CreateView):
         form.instance.usuario = self.request.user
         form.instance.posts_id = self.kwargs["posts_id"]
         return super().form_valid(form)
+    
+class ComentarioUpdateView(LoginRequiredMixin, UpdateView):
+    model = Comentario
+    form_class = ComentarioForm
+    template_name = 'comentario/comentario_form.html'
+    def get_success_url(self):
+        next_url = self.request.GET.get('next')
+        if next_url:
+            return next_url
+        else:
+            return reverse('apps.posts:post_individual', args=[self.object.posts.id])
 
+class ComentarioDeleteView(LoginRequiredMixin, DeleteView):
+    model = Comentario
+    template_name = 'comentario/comentario_confirm_delete.html'
+    def get_success_url(self):
+        return reverse('apps.posts:post_individual', args=[self.object.posts.id])
 
-# Create your views here.
+# Vista para editar un comentario
+
+# def delete_coment(request, id):
+#     if request.method == "POST":
+#         comentario= Comentario.objects.get(pk=id) 
+#         if comentario.usuario_id == request.user or request.user.is_staff:
+#             comentario.delete()
+#     return redirect("apps.post:post_individual",id= comentario.posts_id)
+
+# def editar_coment(request, id):
+#     comentario= Comentario.objects.get(pk=id)
+#     form= ComentarioForm(request.POST )
+#     if request.method == "POST":
+#         if comentario.usuario_id == request.user or request.user.is_staff:
+#             if form.is_valid():
+#                 comentario= form.save()
+#     return redirect("apps.post:post_individual",id= comentario.posts_id)
+
+# def create_post(request):
+#     if not request.user.es_colaborador:
+#         return redirect("index")
+#     if request.method == "POST":

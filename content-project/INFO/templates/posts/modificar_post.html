@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+<center>
+    <div class="content-fluid" style="margin: 30px;">
+        <a id="boton_post"
+        href= "{% url 'apps.post:crear_categoria' %}?next={% url 'apps.post:post_update' pk=object.id %}">
+        Crear nueva categoria</a>
+    <br>
+    <h1>Modificar post</h1>
+    <form method= "POST" enctype="multipart/form.data">
+         {% csrf_token %}
+         {{ form.as_p }}
+         <input type="submit" value="Guardar cambios">
+    <form>
+    </div>
+</center>
+
+{% endblock contenido %} 

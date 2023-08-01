@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+
+
+<center>
+<div class="container-fluid" style="margin: 300px;">
+    <h1>eliminar categoria</h1>
+    <p>¿estas seguro de que quieres eliminar esta categoria? "{{ object.nombre}}"</p>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Si, Eliminar">
+        <a style="color: black;" href="{% url 'apps.post:categoria_list' %}">No, Cancelar</a>
+    </form>
+</div>
+</center>
+
+{% endblock contenido %}

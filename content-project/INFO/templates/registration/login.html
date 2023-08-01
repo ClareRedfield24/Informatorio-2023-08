@@ -1,28 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
 
-<title>{% block title %} Iniciar sesion {% endblock title %}</title>
+{% block title %} Iniciar sesion {% endblock title %}
 
 {% block contenido %}
-<body>
 <div class="login">
         <div class="container">
             <div class="row justify-content-center pt-6  mr-1 ">
                 <div class="col-md-4 formulario">
                     <form method="POST">
-                        <br>
-                        <div class= "messages">
-                            {% for message in messages %}
-                                <table{% if message.tags %} class= "{{ message.tags}}"{% endif %}> {{ message}} </table>
-                            {% endfor %}
-                        </div>
-                        <br>
                         {% csrf_token %}
                         <div class="form-group text-center pt-4">
                             <h1 class="text-light">Iniciar Sesion</h1>
                         </div>
                         <div class="form-group mx-sm-4 pt-3">
-                            <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username" class="form-control" placeholder="Ingrese su usuario">
+                            <input type="usuario" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username" class="form-control" placeholder="Ingrese su usuario">
                         </div>
                         <div class="form-group mx-sm-4 pt-3">
                             <input type="password" name="password" autocomplete="current-password" required="" id="id_password" class="form-control" placeholder="Ingrese su contraseña">
@@ -41,33 +33,8 @@
                 </div>
             </div>
             
-        </div>  
-        
-        {% comment %} <form method="POST" style= "margin-top: 50px">
-            <h1 class="h1">Iniciar sesion</h1>
-            <br>
-            <div class= "messages">
-                {% for message in messages %}
-                    <table{% if message.tags %} class= "{{ message.tags}}"{% endif %}> {{ message}} </table>
-                {% endfor %}
-            </div>
-            <br>
-            {% csrf_token %}
-            <div class= "container">
-                <table>{{ form }}</table>
-                <br>
-                <a style="color: black !important;" href= "{% url "apps.usuario:registrar" %}"> Todavia no estas registrado? Registrate</a>
-                <br> <br>
-                <button type="submit" class= "btn btn-success btn-lg px-3">Iniciar Sesion</button>
-                <br> <br>
-                <a style="color: cel;" href= "{% url "apps.usuario:password_reset" %}">¿Olvidaste tu contraseña?</a>
-                <br>
-            </div>
-        </form>
-    
-    </div> {% endcomment %}
-    
-</body>
-
-{% endblock %}
-{% comment %} <button type="submit" class="btn btn-success btn-lg px-3">Iniciar Sesion</button> {% endcomment %}
+        </div> 
+   
+</div>        
+             
+{% endblock contenido %}

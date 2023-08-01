@@ -6,20 +6,23 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic import CreateView
 from django.contrib import messages
 from django.shortcuts import redirect
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
+from django.contrib.auth.models import Group
 
 
 # Create your views here.
 class RegistrarUsuario(CreateView):
     template_name= "registration/registrar.html"
     form_class= RegistroUsuarioForm
+    success_url=reverse_lazy("apps.usuario:login")
 
 
     def form_valid(self, form):
+        reponse=super().form_valid(form)
         messages.success(self.request, "Registro exitoso. Por favor, inicia sesion")
-        form.save()
-
-        return redirect("apps.usuario:login")
+        group= Group.objects.get(name="Registrado")
+        self.object.groups.add(group)
+        return reponse
     
 class LoginUsuario(LoginView):
     template_name= "registration/login.html"
@@ -33,5 +36,6 @@ class LogoutUsuario(LogoutView):
 
     def get_success_url(self):
         messages.success(self.request, "Has cerrado Sesion")
+        
 
         return reverse("apps.usuario:logout")

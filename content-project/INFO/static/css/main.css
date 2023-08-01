@@ -11,6 +11,13 @@
     font-family: math;
     font-size: x-large;
 }
+header{
+    min-height: 72px;
+}
+#block-content{
+    min-height: calc(100vh - 72px - 70px);
+
+}
 
 .display-4 {
     font-size: calc(1.475rem + 2.7vw);
@@ -362,21 +369,24 @@ body{
 
 }  */
 
-/* .container{
+.contacto{
     font-size: 1.9rem;
-    background: url(3.jpg);
     background-attachment: fixed;
     background-size: cover;
-} */
+    background-image: url("../imagenes/contacto.jpg");
+    padding: 2%;
+} 
 
 .form{
     width: 50%;
     min-width: 300px;
     background: rgba(0, 0, 0, 0.491);
     margin: auto;
-    margin-top: 50px;
     padding: 20px;
     color: blue;
+    margin-top: 120px;
+    margin-bottom: 120px;
+
 }
 
 h1{
@@ -425,6 +435,7 @@ h1{
     display: block;
     font-size: 1.4rem ;
     font-weight: 300;
+    color: azure;
 
 }
 

@@ -1,103 +1,60 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block contenido %}
-<title>{% block title %} Contacto {% endblock title %}</title>
+{% extends 'base.html' %} {% load static %} 
+{% block title %} Contacto {%endblock title %} {% block contenido %}
 
-<div class="container">
-    <form action="" class="form">
-        <header class="header">
-            <h1><span>Formulario de Contacto</span></h1>
-        </header>
-        <label for="name" class=" form__label">Nombre:</label>
-        <input type="text" class="form__input" name="nombre" placeholder="Nombre" 
-        id="name">
+<div class="contacto">
+  <div class="container">
+    <form method="POST" class="form">
+      {% csrf_token %}
+      <header class="header">
+        <h1><span>Formulario de Contacto</span></h1>
+      </header>
+      <label for="id_nombre_apellido" class="form__label"
+        >Nombre y Apellido:</label
+      >
+      <input
+        type="text"
+        name="nombre_apellido"
+        maxlength="120"
+        required=""
+        id="id_nombre_apellido"
+        class="form__input"
+        placeholder="Nombre y Apellido"
+      />
 
-        <label for="direccion" class="form__label">Direccion:</label>
-        <input type="text" class="form__input" name="direccion" placeholder="Direccion" 
-        id="Direccion">
+      <label for="id_email" class="form__label">Email:</label>
+      <input
+        type="email"
+        name="email"
+        maxlength="254"
+        required=""
+        id="id_email"
+        class="form__input"
+        placeholder="Email"
+      />
 
-        <label for="correo" class="form__label">Correo Electronico:</label>
-        <input type="email" class="form__input" name="correo" placeholder="Correo Electronico" 
-        id="correo">
+      <label for="id_asunto" class="form__label">Asunto:</label>
+      <input
+        type="text"
+        name="asunto"
+        maxlength="50"
+        required=""
+        id="id_asunto"
+        class="form__input"
+        placeholder="Asunto"
+      />
 
-        <label for="mensaje" class="form__label">Introduzca su mensaje:</label>
-        <textarea class="form__text" name="mensaje" id="mensaje" cols= "30" 
-        placeholder="Escriba su mensaje">
-
-        <input type="submit" class="enviar" value="Enviar su consulta">
-
+      <label for="id_mensaje" class="form__label">Introduzca su mensaje:</label>
+      <textarea
+        class="form__text"
+        name="mensaje"
+        cols="40"
+        rows="10"
+        required=""
+        id="id_mensaje"
+        placeholder="Escriba su mensaje"
+      ></textarea>
+      <input type="submit" class="enviar" value="Enviar su consulta" />
     </form>
+  </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<center>
-    <form method= "POST" style= "margin: 25px;">
-        <p>¿Alguna pregunta, sugerencia o le interesa algún tema específico?&nbsp;Por favor rellene este formulario.</p>
-        <h1>Formulario de contacto</h1>
-        <br>
-        {% if messages%}
-            {% for message in messages%}
-                <div class= "message {{ message.tags}}"> {{ message}} </div>
-            {% endfor %}
-        {% endif %}
-        <table>
-            {% csrf_token %}
-            {{ form }}
-        </table>
-        <input type="submit" value="enviar">
-    </form>
-
-  
-</center>
-
-{% endblock %}
-
-
+{% endblock contenido %}

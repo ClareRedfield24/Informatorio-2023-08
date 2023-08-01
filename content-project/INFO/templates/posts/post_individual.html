@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load colaborador_tags %}
 
 {% block contenido %}
 <center>
@@ -9,11 +10,20 @@
 		<h1>TITULO: {{posts.titulo}}</h1>
 
 		<img src="{{posts.imagen.url}}" width="300" height="auto">
-
 		<p>FECHA: {{posts.fecha}}</p>
 		<p>CATEGORIA: {{posts.categoria}}</p>
 		<p>TEXTO: {{posts.texto}}</p>
 	</article>
+
+    {% if user.is_superuser or request.user|has_group:"Colaborador" %}
+    <div class="container-fluid" style="margin-top: 300px;">
+        <a id="boton_post" href="{% url 'apps.post:post_update' pk=posts.id %}">Modificar Post</a>
+    </div>
+    <div class="container-fluid" style="margin-top: 300px;">
+        <a id="boton_post" href="{% url 'apps.post:post_delete' pk=posts.id %}">Eliminar Post</a>
+    </div>
+
+    {% endif %}
     <br>
 </div>
 </center>
@@ -25,9 +35,9 @@
 <div class= "container-fluid" style="margin-bottom: 20px;"></div>
     {% for comentario in comentarios %}
     <p>{{ comentario.usuario }} - {{ posts.usuario}}</p>
-    {% if comentario.usuario == request.user %}
-    <button>Editar</button>
-    <button>Borrar</button>
+    {% if comentario.usuario == request.user or posts.usuario == request.user %}
+    {% comment %} <form method="POST" action="{% url 'apps.post:editar_coment' comentario.id %}" >{% csrf_token %}<p>{{ comentario.id }}</p><button type="submit">Editar</button></form> {% endcomment %}
+    <form method="POST" action="{% url 'apps.post:delete_coment' comentario.id %}" >{% csrf_token %}<p>{{ comentario.id }}</p><button type="submit">Borrar</button></form>
     {% endif %}
     <table>{{ comentario.usuario }} - {{ comentario.fecha }}</table>
     <ul class= "w-100 list-unstyled d-flex justify-content-between mb-0">
