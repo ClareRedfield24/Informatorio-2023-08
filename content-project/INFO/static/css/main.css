@@ -248,6 +248,7 @@ body{
   .form-control{
     background: rgba(0, -0, -0, -.3);
     transition: 0.5s ease-in;
+    color: white;
 
   }
 
@@ -337,6 +338,7 @@ body{
     background: rgba(23, 22, 22, 0.475);
     transition: 0.5s ease-in;
     border-radius: 10px;
+    color: white;
 
   }
 
@@ -423,6 +425,7 @@ h1{
     border: none;
     border-bottom: 2px solid #2756c265;
     margin-bottom: 15px;
+    color: white;
 
 }
 
@@ -446,8 +449,8 @@ h1{
     padding: 10px;
     outline: none;
     border: none;
-    border-bottom: 2px solid #2756c265;
-    background: #2756c265;
+    border-bottom: 2px solid #3e2133fa;
+    background: #3e2133fa;
     color: #fff;
     text-align: center;
     font-size: 1.6rem;

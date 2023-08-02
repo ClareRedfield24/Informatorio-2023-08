@@ -1,5 +1,8 @@
 # from django.shortcuts import render
 from typing import Any, Dict
+
+from django.db.models.query import QuerySet
+from django.db.models.functions import Lower
 from .models import Post, Comentario, Categoria
 from .forms import ComentarioForm,CrearPostForm, NuevaCategoriaForm
 from django.views.generic import ListView, DetailView, CreateView,UpdateView, DeleteView
@@ -20,6 +23,33 @@ class PostListView(ListView):
     model = Post
     template_name = "posts/posts.html"
     context_object_name = "posts"
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        orden = self.request.GET.get("orden")
+        if orden == "reciente":
+            queryset = queryset.order_by("-fecha")
+        elif orden== "antiguo":
+            queryset = queryset.order_by("fecha")
+        elif orden == "alfabeticoA-Z":
+            queryset = queryset.annotate(titulo_lower=Lower("titulo")).order_by("titulo_lower")
+        elif orden == "alfabeticoZ-A":
+            queryset = queryset.annotate(titulo_lower=Lower("titulo")).order_by("-titulo_lower")
+
+        categoria = self.request.GET.get("categoria")
+        if categoria:
+            queryset = queryset.filter(categoria_id=categoria)
+        return queryset
+        # elif orden == "categoria":
+        #     print(self, "================")
+        #     queryset = queryset.filter(categoria_id=self.kwargs["id"])
+        # return queryset
+    
+    def get_context_data(self, **kwargs: Any):
+        context = super().get_context_data(**kwargs)
+        context["orden"] = self.request.GET.get("orden", "reciente")
+        context["categorias"] = Categoria.objects.all()
+        return context
 
 class PostDetailView(DetailView):
     model = Post
@@ -108,13 +138,13 @@ class ComentarioUpdateView(LoginRequiredMixin, UpdateView):
         if next_url:
             return next_url
         else:
-            return reverse('apps.posts:post_individual', args=[self.object.posts.id])
+            return reverse('apps.post:post_individual', args=[self.object.posts.id])
 
 class ComentarioDeleteView(LoginRequiredMixin, DeleteView):
     model = Comentario
     template_name = 'comentario/comentario_confirm_delete.html'
     def get_success_url(self):
-        return reverse('apps.posts:post_individual', args=[self.object.posts.id])
+        return reverse('apps.post:post_individual', args=[self.object.posts.id])
 
 # Vista para editar un comentario
 

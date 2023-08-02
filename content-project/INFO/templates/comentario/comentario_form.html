@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<center>
+    {% if user.is_superuser or comentario.usuario == user %}
+<div class="container-fluid" style="margin-bottom: 10px; margin-top:10px">
+    <h1>Editar Comentario</h1>
+    <form method="POST" style="margin-bottom: 10px; margin-top: 100px">
+        {% csrf_token %}
+        {{ form.as_p}}
+        <input type="submit" value="Guardar Cambios">
+    </form>
+</div>
+{% else %}
+    <div class="container-fluid" style="margin: 300px;">
+        <h1>Solo los usuarios con permisos pueden acceder a esta pagina</h1>
+    </div>
+{% endif %}
+</center>
+
+{% endblock contenido %}
+
+
