@@ -404,16 +404,16 @@ h1{
 }
 
 .form__input{
-   width: 100%;
-   height: 45px;
-   background: rgba(0, 0, 0, 0.7);
-   padding: 10px;
-   outline: none;
-   border: none;
-   border-bottom: 2px solid #2756c265;
-   font-size: 1.4rem;
-   margin-bottom: 15px;
-   color: #fff;
+    width: 100%;
+    height: 45px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #2756c265;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #fff;
 }
 
 .form__text{
@@ -462,4 +462,57 @@ h1{
 
 .enviar:hover{
     background: #2756c265;
+}
+
+.contenido {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+    background-color: rgb(153 137 137 / 72%);
+    border-radius: 10px;
+    text-align: center;
+
+}
+
+.articulo{
+    border-color: dodgerblue;
+    border: 2px;
+    padding: 10vmin;
+    border: double;
+    border-block-width: inherit;
+    align-items: baseline;
+    background: burlywood;
+    padding: 10vmin;
+    border: double;
+}
+
+.dropdown{
+    text-align: left;
+}
+/* menu */
+.menu{
+    list-style: none;
+    padding: 20px;
+    background: #1c3245;
+    max-width: 400px;
+    margin: auto;
+    display: list-item;
+}
+.menu li a{
+    text-decoration: none;
+    color: white;
+    padding: 20px;
+    display: unset;
+}
+
+.menu li{
+    display: flow-root;
+    text-align: center;
+    color: white;
+}
+
+.menu li a:hover{
+    background: rgb(62, 180, 191);
 }

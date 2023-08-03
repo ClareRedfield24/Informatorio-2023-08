@@ -17,13 +17,18 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/comentario.css' %}" />
   </head>
 
   <body>
     <main>
       {% include "includes/header.html" %}
       <div id="block-content">
-        {% block contenido %} {% endblock contenido %}
+        <div id="contenido" class="contenido">
+        {% block contenido %} 
+        
+        {% endblock contenido %}
+      </div>
       </div>
 
       {% include "includes/footer.html" %}

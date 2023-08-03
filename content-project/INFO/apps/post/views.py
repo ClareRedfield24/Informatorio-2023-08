@@ -36,9 +36,10 @@ class PostListView(ListView):
         elif orden == "alfabeticoZ-A":
             queryset = queryset.annotate(titulo_lower=Lower("titulo")).order_by("-titulo_lower")
 
-        categoria = self.request.GET.get("categoria")
-        if categoria:
-            queryset = queryset.filter(categoria_id=categoria)
+        categoria_seleccionada = self.request.GET.get("categoria")
+        if categoria_seleccionada:
+            categoria = get_object_or_404(Categoria, nombre=categoria_seleccionada)
+            queryset = queryset.filter(categoria=categoria)
         return queryset
         # elif orden == "categoria":
         #     print(self, "================")
@@ -95,7 +96,7 @@ class CategoriaCreateView(LoginRequiredMixin,CreateView):
             return next_url
         else:
             return reverse_lazy("apps.post:crear_post")
- 
+
 class CategoriaListView(ListView):
     model = Categoria
     template_name = "posts/categoria_list.html"
@@ -113,9 +114,9 @@ class PostUpdateView(LoginRequiredMixin,UpdateView):
     success_url = reverse_lazy('apps.post:posts')
 
 class PostDeleteView(DeleteView):
-   model = Post
-   template_name = "posts/eliminar_post.html"
-   success_url = reverse_lazy('apps.post:posts')
+    model = Post
+    template_name = "posts/eliminar_post.html"
+    success_url = reverse_lazy('apps.post:posts')
 
 class ComentarioCreateView(LoginRequiredMixin, CreateView):
 

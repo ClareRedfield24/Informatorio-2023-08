@@ -7,7 +7,7 @@
     <br>
 	<article class="articulo">
 		
-		<h1>TITULO: {{posts.titulo}}</h1>
+		<h1 style="color: black;">TITULO: {{posts.titulo}}</h1>
 
 		<img src="{{posts.imagen.url}}" width="300" height="auto">
 		<p>FECHA: {{posts.fecha}}</p>
@@ -16,10 +16,10 @@
 	</article>
 
     {% if user.is_superuser or request.user|has_group:"Colaborador" %}
-    <div class="container-fluid" style="margin-top: 300px;">
+    <div class="container-fluid" style="margin-top: 30px;">
         <a id="boton_post" href="{% url 'apps.post:post_update' pk=posts.id %}">Modificar Post</a>
     </div>
-    <div class="container-fluid" style="margin-top: 300px;">
+    <div class="container-fluid" style="margin-top: 30px;">
         <a id="boton_post" href="{% url 'apps.post:post_delete' pk=posts.id %}">Eliminar Post</a>
     </div>
 

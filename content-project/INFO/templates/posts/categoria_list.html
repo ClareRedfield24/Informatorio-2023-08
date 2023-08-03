@@ -1,19 +1,18 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block contenido %}
 <center>
-    <div class="container-fluid" style="margin: 200px;">
-        <h1 class="Categorias">Categorias</h1>
-        <br>
-        <ul>
-            {% for categoria in categoria %}
-                <li>{{ categoria.nombre}}
-                (<a style="color: black;" href="{% url 'apps.post:categoria_delete' pk=categoria.pk %}">Eliminar</a>)</li>
-            {% empty %}
-                    <li>No hay categorias</li>
-            {% endfor %}
-        </ul>
-    </div>
+<h1 style="color: black;">Lista De Categorias</h1>
+<nav>  
+    <ul class="menu">
+        {% for categoria in categoria %}
+        <li>{{ categoria.nombre}} <hr> <a style="color: white;" href="{% url 'apps.post:categoria_delete' pk=categoria.pk %}">Eliminar</a><hr></li>
+    
+    {% empty %}
+            <li>No hay categorias</li>
+    {% endfor %}
+    
+    </ul></nav>
 </center>
 
 {% endblock contenido %}
