@@ -3,30 +3,42 @@
 {% load  colaborador_tags %}
 {% block contenido %}
 
-{% block title %} Todos los post {% endblock title %}
-{% if user.is_superuser or request.user|has_group:"Colaborador" %}
-<div class="container-fluid" style="margin-top: 300px;">
-  <a id="boton_post" href="{% url 'apps.post:crear_post' %}">Crear nuevo post</a>
-</div>
+
+
+<div class="cont-f text-center ">
+  {% if user.is_superuser or request.user|has_group:"Colaborador" %}
+  <div class="mx-sm-4 pt-3" style="margin-top: 10px;">
+    <a class="btn btn-info" href="{% url 'apps.post:crear_post' %}" role="button">Crear nuevo post</a>
+  </div>
 {% endif %}
-<h2>Ordenar por:</h2>
-<ul>
-  <a id= "boton_post" href="{% url 'apps.post:posts' %}?orden=reciente">Mas recientes</a>
-  <a id= "boton_post" href="{% url 'apps.post:posts' %}?orden=antiguo">Mas antiguo</a>
-  <a id= "boton_post" href="{% url 'apps.post:posts' %}?orden=alfabeticoA-Z">Alfabetico A-Z</a>
-  <a id= "boton_post" href="{% url 'apps.post:posts' %}?orden=alfabeticoZ-A">Alfabetico Z-A</a>
+  <div class="dropdown mx-sm-4 pt-3">
+    <button class="btn btn-secondary dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Filtrar por:
+    </button>
+    <ul class="dropdown-menu dropdown-menu-dark">
+      <li><a class="dropdown-item " href="{% url 'apps.post:posts' %}">Todos</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item " href="{% url 'apps.post:posts' %}?orden=reciente">Mas recientes</a></li>
+      {% comment %} <li><a class="dropdown-item " href="{% url 'apps.post:posts' %}?orden=reciente">Mas recientes</a></li> {% endcomment %}
+      <li><a class="dropdown-item" href="{% url 'apps.post:posts' %}?orden=antiguo">Mas antiguo</a></li>
+      <li><a class="dropdown-item" href="{% url 'apps.post:posts' %}?orden=alfabeticoA-Z">Alfabetico A-Z</a></li>
+      <li><a class="dropdown-item" href="{% url 'apps.post:posts' %}?orden=alfabeticoZ-A">Alfabetico Z-A</a></li>
+      </ul>
+  </div>
+  <br>
   <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-      Categorias
+      Filtrar por Categoria:
     </button>
-    <ul class="dropdown-menu">
-      {% for cat in categoria %}
-      <li><a class="dropdown-item" href="?id={{ cat.pk }}"> {{cat.nombre}} </a></li>
-    {% endfor %}
+    <ul class="dropdown-menu dropdown-menu-dark">
+      <li><a class="dropdown-item " href="{% url 'apps.post:posts' %}">Todos</a></li>
+      <li><hr class="dropdown-divider"></li>
+      {% for categoria in categorias  %}
+      <li><a class="dropdown-item " href="{% url 'apps.post:posts' %}?categoria={{categoria.nombre}}"> {{ categoria.nombre }} </a></li>
+      {% endfor %}
     </ul>
   </div>
-  {% comment %} <a id= "boton_post" href="{% url 'apps.post:posts' %}?categoria=CATEGORIA">Categoria</a> {% endcomment %}
-</ul>
+</div>
   <section class="post-list">
     
     <div class="content">

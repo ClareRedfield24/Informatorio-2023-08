@@ -7,9 +7,10 @@ class ComentarioForm(forms.ModelForm):
         fields =["texto"]
 
 class CrearPostForm(forms.ModelForm):
+    categoria=forms.ModelChoiceField(queryset=Categoria.objects.all(), empty_label="seleccionar categoria")
     class Meta:
         model = Post
-        fields = "__all__"
+        fields = ["titulo","subtitulo","texto","activo","categoria","imagen"]
 
 class NuevaCategoriaForm(forms.ModelForm):
     class Meta: 

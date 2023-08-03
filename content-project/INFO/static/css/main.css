@@ -5,6 +5,44 @@
     background-position: center center;
 }
 
+#inteligencia{
+    background: linear-gradient(rgba(0, 50, 60, 0.6), rgba(20, 0, 0, 0.3)), url("../imagenes/inteligencia.jpg");
+    width:auto
+
+}
+
+.cont-princ{
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: linear-gradient(rgba(71, 97, 90, 0.6), rgba(118, 74, 74, 0.3));
+    width: 65%;
+    height: 80%;
+    color: white;
+    margin-top: 60px;
+    border: 4px solid #396871;
+    margin-bottom: 60px;
+    position: relative;
+    border-radius: 30px;
+}
+.cont-princ p{
+    border: 2px solid #17143d;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: justify;
+    background: linear-gradient(rgb(110 124 137 / 60%), rgb(185 94 94 / 30%));
+    border-radius: 30px;
+}
+.cont-princ h1{
+    text-align: center;
+    font-weight: bold;
+    color: rgb(210, 220, 224);
+
+}
+
+
 .lead {
     font-size: 1.25rem;
     font-weight: inherit;
@@ -16,6 +54,8 @@ header{
 }
 #block-content{
     min-height: calc(100vh - 72px - 70px);
+    background: rgba(136, 179, 179, 0.2);
+ 
 
 }
 
@@ -462,4 +502,246 @@ h1{
 
 .enviar:hover{
     background: #2756c265;
+}
+
+
+/* aca edito lo de crear Post */
+
+.crear-post{
+    background: linear-gradient(rgb(40 83 72 / 60%), rgb(64 85 71 / 30%));
+    padding: 10px;
+    border-radius: 10px;
+
+
+}
+
+.datos_form{
+    background: rgba(0, -0, -0, -.3);
+    transition: 0.5s ease-in;
+    color: white;
+
+}
+
+.form_gata{
+    color: white;
+}
+
+.datos_form{
+    width: 100%;
+    height: 45px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #2756c265;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+.tex_crear{
+    width: 100%;
+    height: 45px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #2756c265;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.guardar{
+    background: #41ab7a;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 700!important;
+    color: white;
+    box-shadow: 0 0 30px rgba(0, -0, -0, -0.568);
+    transition:0.5 ease-in ;
+  }
+  .guardar:hover{
+    color: white;
+  }
+
+.cont-cr{
+    background: linear-gradient(rgba(10, 80, 60, 0.6), rgba(20, 0, 0, 0.3));
+    /* padding: 119px; */
+    min-height: calc(100vh - 72px - 70px);
+ 
+  }
+
+  .contenedor-crear {
+    padding: 20px;
+}
+  /* aca edito lo de agregar categoria */
+
+.cat{
+    background: linear-gradient(rgba(10, 80, 60, 0.6), rgba(20, 0, 0, 0.3));
+    /* padding: 119px; */
+    min-height: calc(100vh - 72px - 70px);
+}
+
+
+
+.dat_fr{
+    background: rgba(0, -0, -0, -.3);
+    transition: 0.5s ease-in;
+    color: white;
+}
+.dat_fr{
+    width: 30%;
+    height: 45px;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #2756c265;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+/* aca edito lo de los botones de filtrar */
+.cont-f {
+    display: block;
+    background: rgba(0, 2, 2, 0.2);
+    margin-top: -10px;
+
+}
+/* 
+aca edito lo de post individual */
+.pos-i {
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    /* padding: 50px; */
+    background: bisque;
+    width: 65%;
+    height: 80%;
+    margin-top: 60px;
+    border: 2px solid #0dcaf0;
+    margin-bottom: 60px;
+    position: relative;
+}
+
+.articulo h1{
+    font-weight: bold;
+    color: #120419;
+    margin-top: 20px;
+    text-align: center;
+}
+.articulo h2 {
+    font-size: 24px;
+    color: #951BD2;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.cas-id span{
+    display:inline-block;
+    color: rgb(27, 27, 31);
+    margin-bottom: 10px;
+}
+
+.cas-id p{
+    border: 2px solid #206088;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: justify;
+    background-color: beige;
+}
+
+.cant-pd img{
+    border: 2px solid #206088;
+}
+
+.container-fluid{
+    margin-bottom: 20px;
+}
+
+.container-fluid p{
+    border: 2px solid #206088;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: justify;
+}
+
+.container-fluid span{
+    border: 2px solid #206088;
+    border-radius: 5px;
+    text-decoration: dashed;
+}
+
+.cos-c p{
+    border: 2px solid #05080b;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #fff;
+}
+
+.cont h2{
+    color: rgb(27, 17, 17);
+
+}
+
+.com-fg{
+    color: #05080b;
+}
+
+.com-eli{
+    padding: 10px;
+    margin-bottom: 20px;
+
+}
+
+.post-ind{
+    background:linear-gradient(rgba(10, 80, 60, 0.6), rgba(20, 0, 0, 0.3));
+    padding: 10px;
+
+}
+.tex_c{
+    width: 100%;
+    height: 45px;
+    background: rgba(213, 199, 199, 0.7);
+    color: black;
+    margin: 0%;
+    display: block;
+}
+
+.conta-g h4{
+    font-weight: bold;
+}
+
+.com-fg textarea{
+    border: 2px solid #05080b;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #fff;
+}
+
+/* aca edito lo de listar categorias JULIAN */
+.menu{
+    list-style: none;
+    padding: 20px;
+    background: #1c3245;
+    max-width: 400px;
+    margin: auto;
+    display: list-item;
+}
+.menu li a{
+    text-decoration: none;
+    color: white;
+    padding: 20px;
+    display: unset;
+}
+
+.menu li{
+    display: flow-root;
+    text-align: center;
+    color: white;
+}
+
+.menu li a:hover{
+    background: rgb(62, 180, 191);
 }

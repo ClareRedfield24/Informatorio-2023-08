@@ -29,6 +29,7 @@ class LoginUsuario(LoginView):
 
     def get_success_url(self):
         messages.success(self.request, "Inicio de Sesion Exitoso")
+        # messages.warning(self.request, "Usuario o contraseña incorrectos")
         return reverse("index")
     
 class LogoutUsuario(LogoutView):
@@ -37,5 +38,5 @@ class LogoutUsuario(LogoutView):
     def get_success_url(self):
         messages.success(self.request, "Has cerrado Sesion")
         
-
-        return reverse("apps.usuario:logout")
+    
+        return reverse("index")

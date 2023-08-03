@@ -9,7 +9,7 @@
           <li><a href="{% url 'index' %}" class="nav-link px-2 text-white">Inicio</a></li>
           <li><a href="{% url "apps.post:posts" %}" class="nav-link px-2 text-white">Posts</a></li>
           <li><a href="{% url "apps.contacto:contacto" %}" class="nav-link px-2 text-white">Contacto</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Acerca de</a></li>
+          <li><a href="{% url 'acerca_de_nosotros' %}" class="nav-link px-2 text-white">Acerca de nosotros</a></li>
         </ul>
        
           {% if messages%} {% for message in messages%}
@@ -29,7 +29,7 @@
         </div>
       </div>
     </div>
-  </header>  
+</header>  
 
 
 
