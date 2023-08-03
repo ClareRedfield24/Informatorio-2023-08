@@ -128,6 +128,13 @@ class ComentarioCreateView(LoginRequiredMixin, CreateView):
         form.instance.usuario = self.request.user
         form.instance.posts_id = self.kwargs["posts_id"]
         return super().form_valid(form)
+
+def acerca_de(request):
+
+    template = 'About/acerca_de_nosotros.html'
+    context= {
+    }
+    return render(request, template, context)
     
 class ComentarioUpdateView(LoginRequiredMixin, UpdateView):
     model = Comentario

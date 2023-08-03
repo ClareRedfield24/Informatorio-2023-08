@@ -25,6 +25,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name= "index"),
+    path("Acerca de nosotros", views.acerca_de, name="acerca_de_nosotros"),
     path("", include("apps.post.urls")),
     path("", include("apps.contacto.urls")),
     path("", include("apps.usuario.urls")),
