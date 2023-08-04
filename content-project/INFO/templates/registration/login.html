@@ -23,7 +23,7 @@
                             <input type="submit" class="btn btn-block ingresar" value="INGRESAR">
                         </div>
                         <div class="form-group mx-sm-4 text-right pb-5 pt-4">
-                            <span class=""><a href="{% url "apps.usuario:password_reset" %}" class="olvide">¿Olvidaste tu contraseña?</a></span>
+                            {% comment %} <span class=""><a href="{% url "apps.usuario:password_reset" %}" class="olvide">¿Olvidaste tu contraseña?</a></span> {% endcomment %}
                         </div>
                         <div class="form-group mx-sm-4 text-center">
                             <span><a href="{% url "apps.usuario:registrar" %}" class="olvide1">REGISTRARSE</a></span>
